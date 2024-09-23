@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel Slowed 5</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-content: center;
+      background: white;
+      overflow: hidden;
+    }
+    .gallery {
+      --s: 250px; /* keeping the image width */
+      display: grid;
+      transform-style: preserve-3d;
+      animation: r 30s linear infinite reverse; /* Increased duration to 30s for slower rotation */
+      position: relative;
+    }
+    @keyframes r {
+      0% {transform: perspective(450px) rotateX(-100deg) rotate(0deg)}
+      to {transform: perspective(450px) rotateX(-100deg) rotate(360deg)} /* Rotating in the opposite direction */
+    }
+    .gallery > a {
+      grid-area: 1/1;
+      width: var(--s);
+      height: calc(var(--s) * 0.7); /* keeping the height multiplier at 0.7 */
+      transform: rotate(calc(-1 * var(--_a))) translateY(60%) rotateX(90deg); /* Reversing the rotation direction */
+      border-radius: 15px; /* adding rounded corners to the cards */
+      overflow: hidden; /* ensuring the image fits within the rounded corners */
+    }
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scaleX(-1); /* Flipping the image horizontally */
+    }
+    .gallery > a:nth-child(1) {
+      --_a: 0deg;
+      background-color: #90f1ef;
+    }
+    .gallery > a:nth-child(2) {
+      --_a: 120deg;
+      background-color: #ff70a6;
+    }
+    .gallery > a:nth-child(3) {
+      --_a: 240deg;
+      background-color: #ff9770;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery">
+    <a href="https://youtu.be/uRFdsvZTSLk?si=DYzxwCF8Kd2C47md" target="_blank">
+      <img src="https://imagesupload.xyz/ib/SQIH7qMPdQmndte_1724413357.png" alt="LinkedIn">
+    </a>
+    <a href="https://youtu.be/Dm6weI1edJg?si=vQ-GCgngOTmTD8kX" target="_blank">
+      <img src="https://imagesupload.xyz/ib/asvw2apij4CZhg1_1724413357.png" alt="Spotify">
+    </a>
+    <a href="https://youtu.be/MdoWPtA7aqM?si=dk32pQ9UExvJgwsK" target="_blank">
+      <img src="https://imagesupload.xyz/ib/ihqILjeNuyrs3Cq_1724413357.png" alt="YouTube">
+    </a>
+  </div>
+</body>
+</html>
